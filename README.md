@@ -1,1 +1,2 @@
-# KelvinPOS
+# Kelvin POS
+npm run dev
