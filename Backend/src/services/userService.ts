@@ -1,4 +1,4 @@
-import { User } from '../models/user';
+import { User } from '@pos/common';
 
 export const getAllUsers = async (): Promise<User[]> => {
     return [

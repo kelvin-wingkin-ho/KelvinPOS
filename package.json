@@ -4,6 +4,11 @@
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix Frontend\" \"npm run dev --prefix Backend\""
   },
+  "workspaces": [
+    "Backend",
+    "Frontend",
+    "Common"
+  ],
   "devDependencies": {
     "concurrently": "^8.0.1"
   }
