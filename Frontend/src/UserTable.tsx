@@ -1,15 +1,31 @@
 import { useEffect, useState } from "react";
-import type { User } from "./models/user";
+import type { User } from "@pos/common/models/user";
 
 const UserTable = () => {
+    const [loading, setLoading] = useState(true);
     const [users, setUsers] = useState<User[]>([]);
 
+
     useEffect(() => {
+        // set loading to true
+        setLoading(true);
+
+        // fetch data        
         fetch('http://localhost:3000/api/users')
         .then((res) => res.json())
         .then(setUsers)
-        .catch(console.error);
+        .catch(console.error)
+        // set loading to false
+        .finally(
+            ()=>setLoading(false)
+        );
     }, []);
+
+    if (loading) {
+        return (
+            <div>Loading...</div>
+        )
+    }
 
     return (
         <div>
