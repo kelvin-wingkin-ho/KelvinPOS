@@ -1,0 +1,1 @@
+INSERT INTO users (id, username, email, password_hash, created_at, is_active) VALUES(nextval('users_id_seq'::regclass), 'admin', 'admin@admin.com', 'password', CURRENT_TIMESTAMP, true);

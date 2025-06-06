@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { User } from "@pos/common/models/user";
+import type { User } from "@pos/common";
 
 const UserTable = () => {
     const [loading, setLoading] = useState(true);
