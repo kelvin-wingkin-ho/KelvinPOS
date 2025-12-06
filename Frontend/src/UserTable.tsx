@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import type { User } from "@pos/common";
+import type { users } from '@prisma/client';
 
 const UserTable = () => {
     const [loading, setLoading] = useState(true);
-    const [users, setUsers] = useState<User[]>([]);
+    const [users, setUsers] = useState<users[]>([]);
 
 
     useEffect(() => {
@@ -15,7 +15,6 @@ const UserTable = () => {
         .then((res) => res.json())
         .then(setUsers)
         .catch(console.error)
-        // set loading to false
         .finally(
             ()=>setLoading(false)
         );
@@ -38,10 +37,10 @@ const UserTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map(({id, name}) => (
+                    {users.map(({id, username}) => (
                         <tr key={id}>
                             <td>{id}</td>
-                            <td>{name}</td>
+                            <td>{username}</td>
                         </tr>
                     ))}
                 </tbody>
